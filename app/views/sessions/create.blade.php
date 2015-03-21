@@ -43,7 +43,6 @@
                         {{ Form::checkbox('remember', true,array('class' => 'form-control')) }} Recordarme
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Sign in</button>
-                    {{ Toastr::render() }}
                     <a href="#" class="pull-right need-help">Olvide mi Clave ? </a><span class="clearfix"></span>
                 {{ Form::close() }}
             </div>
