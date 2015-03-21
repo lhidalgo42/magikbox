@@ -56,8 +56,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Laracasts\Validation\ValidationServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
-        'Barryvdh\DomPDF\ServiceProvider',
-		'Kamaln7\Toastr\ToastrServiceProvider'
+        'Barryvdh\DomPDF\ServiceProvider'
 
 	),
 
@@ -126,8 +125,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
-        'PDF'               => 'Barryvdh\DomPDF\Facade',
-        'Toastr'            => 'Kamaln7\Toastr\Facades\Toastr'
+        'PDF'               => 'Barryvdh\DomPDF\Facade'
 
 	),
 );
