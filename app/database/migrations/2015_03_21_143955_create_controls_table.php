@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableTokenConfigs extends Migration {
+class CreateControlsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,16 @@ class CreateTableTokenConfigs extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('token_config', function(Blueprint $table)
+		Schema::create('controls', function(Blueprint $table)
 		{
 			$table->increments('id');
             $table->string('name');
-            $table->string('value');
-            $table->string('description');
+            $table->integer('macs_id');
+            $table->integer('users_id');
             $table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -29,7 +30,7 @@ class CreateTableTokenConfigs extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('token_config');
+		Schema::drop('controls');
 	}
 
 }

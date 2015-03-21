@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableControls extends Migration {
+class CreateMacTypesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,14 @@ class CreateTableControls extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('controls', function(Blueprint $table)
+		Schema::create('mac_types', function(Blueprint $table)
 		{
 			$table->increments('id');
             $table->string('name');
-            $table->string('mac');
-            $table->integer('users_id');
             $table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -29,7 +28,7 @@ class CreateTableControls extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('controls');
+		Schema::drop('mac_types');
 	}
 
 }

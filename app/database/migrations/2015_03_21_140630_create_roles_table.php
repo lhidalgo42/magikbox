@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableSensorsTypes extends Migration {
+class CreateRolesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,15 @@ class CreateTableSensorsTypes extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sensors_types', function(Blueprint $table)
+		Schema::create('roles', function(Blueprint $table)
 		{
 			$table->increments('id');
             $table->string('name');
-            $table->string('uses');
-            $table->string('examples');
-            $table->string('tag');
+            $table->string('privileges');
             $table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -30,7 +29,7 @@ class CreateTableSensorsTypes extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sensors_types');
+		Schema::drop('roles');
 	}
 
 }

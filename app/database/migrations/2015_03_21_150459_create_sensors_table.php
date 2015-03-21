@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableSensors extends Migration {
+class CreateSensorsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -17,11 +17,11 @@ class CreateTableSensors extends Migration {
 			$table->increments('id');
             $table->string('name');
             $table->integer('products_id');
-            $table->integer('sensors_types_id');
+            $table->integer('sensor_types_id');
             $table->timestamps();
-            
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

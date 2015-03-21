@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableProducts extends Migration {
+class CreateProductsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -17,11 +17,11 @@ class CreateTableProducts extends Migration {
 			$table->increments('id');
             $table->string('name');
             $table->integer('controls_id');
-            $table->integer('products_types_id');
-            $table->string('mac');
-			$table->timestamps();
+            $table->integer('macs_id');
+            $table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

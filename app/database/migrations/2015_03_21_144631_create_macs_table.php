@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableOrders extends Migration {
+class CreateMacsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,16 @@ class CreateTableOrders extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('orders', function(Blueprint $table)
+		Schema::create('macs', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('sensors_id');
-            $table->integer('users_id');
+            $table->string('name');
             $table->string('value');
-            $table->string('execute_time');
+            $table->integer('mac_types_id');
             $table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -30,7 +30,7 @@ class CreateTableOrders extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('orders');
+		Schema::drop('macs');
 	}
 
 }

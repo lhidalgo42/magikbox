@@ -1,25 +1,15 @@
 <?php
 
-
 class UsersTableSeeder extends Seeder {
 
 	public function run()
 	{
+        User::create([
+                'username' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => '123',
+                'roles_id' => '1'
+		]);
 
-			User::create([
-				'username' => 'leontuna',
-				'email' => 'leontuna@gmail.com',
-				'password' => '123',
-				'roles_id' => '1',
-				'img_path'   => ''
-			]);
-			User::create([
-				'username' => 'enzo9214',
-				'email' => 'enzo.9214@gmail.com',
-				'password' => '123',
-				'roles_id' => '2',
-				'img_path'   => ''
-			]);
 	}
-
 }

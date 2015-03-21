@@ -1,5 +1,5 @@
 <?php
 
-class Sell extends \Eloquent {
+class Macs extends \Eloquent {
 	protected $fillable = [];
 }
