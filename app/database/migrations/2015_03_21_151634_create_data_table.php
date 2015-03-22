@@ -15,7 +15,9 @@ class CreateDataTable extends Migration {
 		Schema::create('data', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->timestamps();
+            $table->integer('sensors_id');
+            $table->string('value');
+            $table->timestamps();
 		});
 	}
 

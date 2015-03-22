@@ -52,3 +52,6 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 Route::post('/api/login', 'ApiController@login');
 Route::resource('/api', 'ApiController');
 Route::get('/api/request/{data}/','RequestController@index');
+
+Route::get('/faker/seeds', 'FakerController@index');
+Route::get('/faker/data', 'FakerController@create');

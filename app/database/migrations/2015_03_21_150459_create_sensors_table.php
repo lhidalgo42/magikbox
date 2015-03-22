@@ -18,6 +18,8 @@ class CreateSensorsTable extends Migration {
             $table->string('name');
             $table->integer('products_id');
             $table->integer('sensor_types_id');
+            $table->boolean('highlight');
+            $table->string('tag');
             $table->timestamps();
 		});
 	}

@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration {
 			$table->increments('id');
             $table->string('name');
             $table->integer('controls_id');
+            $table->string('tag');
             $table->integer('macs_id');
             $table->timestamps();
 		});

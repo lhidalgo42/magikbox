@@ -21,16 +21,9 @@
                     <a href="#"><i class="fa fa-home fa-fw"></i> {{$control->name}} <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         @foreach(Product::where('controls_id','=',$control->id)->get() as $product)
+                            <?php $sensor = Sensor::where('products_id', '=', $product->id)->where('highlight', 1)->get()->first(); ?>
                             <li>
-                                <a href="#">{{ProductsType::find($product->products_types_id)->tag}} {{ $product->name }} <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    @foreach(Sensor::where('products_id','=',$product->id)->get() as $sensor)
-                                        <li>
-                                            <a href="#">{{SensorsType::find($sensor->sensors_types_id)->tag}} {{$sensor->name}}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                <!-- /.nav-third-level -->
+                                <a href="#">{{$sensor->tag}} {{$sensor->name}}</a>
                             </li>
                         @endforeach
                     </ul>

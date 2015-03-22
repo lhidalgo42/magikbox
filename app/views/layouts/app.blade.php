@@ -28,6 +28,7 @@
 
     <!-- Custom Fonts -->
     {{ HTML::style('/packages/font-awesome/css/font-awesome.min.css') }}
+    {{ HTML::style('/packages/ionicons/css/ionicons.min.css') }}
 
     <!-- Custom Css -->
     @yield('css','')
