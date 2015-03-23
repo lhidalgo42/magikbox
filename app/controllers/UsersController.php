@@ -8,9 +8,11 @@ class UsersController extends \BaseController {
 
             $sensors = null;
             $control = Control::where('users_id', Auth::user()->id)->get()->first();
-            $products = Product::where('controls_id', $control->id)->get();
-            foreach ($products as $product) {
-                $sensors[] = Sensor::where('products_id', $product->id)->where('highlight', 1)->get()->first();
+            if($control) {
+                $products = Product::where('controls_id', $control->id)->get();
+                foreach ($products as $product) {
+                    $sensors[] = Sensor::where('products_id', $product->id)->where('highlight', 1)->get()->first();
+                }
             }
             /*
              * return Response::make(json_encode(array(

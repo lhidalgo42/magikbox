@@ -10,6 +10,7 @@
         </div>
         <!-- /.row -->
         <div class="row"  id="cards">
+            @if($sensors != null)
             @foreach($sensors as $sensor)
                 <div class="col-lg-3 col-sx-6">
                     <div class="panel panel-green">
@@ -34,6 +35,7 @@
                     </div>
                 </div>
             @endforeach
+                    @endif
         <!--    <div class="col-lg-3 col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
