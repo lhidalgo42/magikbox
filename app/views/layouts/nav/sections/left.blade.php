@@ -47,7 +47,7 @@
                         <a href="#/notifications">Notifications</a>
                     </li>
                     <li>
-                        <a href="#/advanced/config">Notifications</a>
+                        <a href="#/advanced/config">Configuraciones Avanzadas</a>
                     </li>
                     <li>
                         <a href="#/support">Soporte</a>

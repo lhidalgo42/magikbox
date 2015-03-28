@@ -9,12 +9,9 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-        <div class="row">
-            <h1 class="page-header">Grafico</h1>
+            <h1>Grafico</h1>
             <div id="morris-area-chart"></div>
-        </div>
-
-    </div>
+       </div>
     <!-- /#page-wrapper -->
 @stop
 
