@@ -13,7 +13,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="/"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
             </li>
 
             @foreach(Control::where('users_id','=',Auth::user()->id)->get() as $control)
