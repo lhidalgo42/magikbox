@@ -5,7 +5,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/dashboard">NeoGuard</a>
+    <a class="navbar-brand" href="/">MagikBox</a>
 </div>
 <!-- /.navbar-header -->
 
@@ -158,9 +158,9 @@
                 <li><a href="/admin/dashboard"><i class="fa fa-gear fa-fw"></i> Administrar</a>
                 </li>
             @endif
-            <li><a href="/dashboard/profile"><i class="fa fa-user fa-fw"></i> Perfil</a>
+            <li><a href="/profile"><i class="fa fa-user fa-fw"></i> Perfil</a>
             </li>
-            <li><a href="/dashboard/config"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+            <li><a href="/config"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
             </li>
             <li class="divider"></li>
             <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

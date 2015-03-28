@@ -29,6 +29,7 @@
     <!-- Custom Fonts -->
     {{ HTML::style('/packages/font-awesome/css/font-awesome.min.css') }}
     {{ HTML::style('/packages/ionicons/css/ionicons.min.css') }}
+    {{ HTML::style('/packages/sweetalert/lib/sweet-alert.css') }}
 
     <!-- Custom Css -->
     @yield('css','')
@@ -61,14 +62,9 @@
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="/packages/metisMenu/dist/metisMenu.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="/packages/raphael/raphael-min.js"></script>
-<script src="/packages/morrisjs/morris.min.js"></script>
-<script src="/js/morris-data.js"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="/js/sb-admin-2.js"></script>
+<script src="/packages/sweetalert/lib/sweet-alert.min.js"></script>
 
 @yield('js','')
 

@@ -19,6 +19,13 @@
 Route::group(array('before' => 'auth'), function() {
     Route::get('/', ['as' => 'home', 'uses' => 'UsersController@dashboard']);
     Route::get('/profile', 'UsersController@profile');
+    Route::get('/sensor/{id}', 'SensorsController@show');
+    Route::get('/calendar', 'CalendarController@index');
+    Route::get('/sensors', 'ConfigController@sensors');
+    Route::get('/notifications', 'ConfigController@notifications');
+    Route::get('/support', 'SupportController@index');
+    Route::get('/help', 'HelpControllers@index');
+    Route::get('/functions', 'FunctionsController@index');
 });
 
 /*
@@ -49,9 +56,17 @@ Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store',
 |--------------------------------------------------------------------------
 |
 */
-Route::post('/api/login', 'ApiController@login');
-Route::resource('/api', 'ApiController');
 Route::get('/api/request/{data}/','RequestController@index');
 
-Route::get('/faker/seeds', 'FakerController@index');
-Route::get('/faker/data', 'FakerController@create');
+/*
+|--------------------------------------------------------------------------
+| Routes for FAKER
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::group(array('before' => 'auth'), function() {
+    Route::get('/faker/seeds', 'FakerController@index');
+    Route::get('/faker/data', 'FakerController@show');
+    Route::post('/faker/data', 'FakerController@create');
+});

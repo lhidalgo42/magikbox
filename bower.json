@@ -15,7 +15,9 @@
     "eonasdan-bootstrap-datetimepicker": "4.0.0",
     "moment": "2.9.0",
     "ionicons": "~2.0.1",
-    "angular-ui-calendar": "latest"
+    "angular-ui-calendar": "latest",
+    "sweetalert":"~0.5.0 "
+  }
   },
   "resolutions": {
     "jquery"         : "~2.1.x",

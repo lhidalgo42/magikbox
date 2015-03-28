@@ -13,19 +13,23 @@
             @if($sensors != null)
             @foreach($sensors as $sensor)
                 <div class="col-lg-3 col-sx-6">
-                    <div class="panel panel-green">
+                    <div class="panel panel-{{str_replace(" ","",$sensor->name)}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="ion-thermometer fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{Data::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first()}}</div>
+                                    @if($data = Data::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
+                                    <div class="huge">{{round($data->value,1)}}</div>
+                                    @else
+                                    <div class="huge">{{round(15,1)}}</div>
+                                    @endif
                                     <div>{{$sensor->name}}</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/sensor/{{$sensor->id}}">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver mas Detalles</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-o-right"></i></span>
@@ -104,7 +108,7 @@
             </div> -->
         </div>
         <!-- /.row -->
-        <div class="row">
+      <?php /*  <div class="row">
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -545,6 +549,7 @@
             <!-- /.col-lg-4 -->
         </div>
         <!-- /.row -->
+ */ ?>
     </div>
     <!-- /#page-wrapper -->
 @stop
@@ -559,9 +564,37 @@
 
         });
     </script>
+    <!-- Morris Charts JavaScript -->
+    <script src="/packages/raphael/raphael-min.js"></script>
+    <script src="/packages/morrisjs/morris.min.js"></script>
+    <script src="/js/morris-data.js"></script>
 @stop
 
 @section('css')
-    {{ HTML::style('/packages/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'); }}
+    {{ HTML::style('/packages/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}
+    <style>
+        @foreach($sensors as $sensor)
+        @if($batery = Batery::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
+        <?php
+        $x = $batery->value;
+        $r = dechex(round((-125/6)*$x + 701/3,0));
+        $g = dechex(round((101/6)*$x + 1043/15,0));
+        $b = dechex(round((13/6)*$x + 1159/15,0));
+        $color = "#".$r.$g.$b;
+        ?>
+        @else
+        <?php $color = "#5cb85c"; ?>
+        @endif
+
+        .panel-{{str_replace(" ","",$sensor->name)}} .panel-heading{
+            background-color: {{$color}};
+            border-color: {{$color}};
+        }
+        .panel-{{str_replace(" ","",$sensor->name)}}{
+            border-color: {{$color}};
+        }
+        @endforeach
+    </style>
+
 @stop
 

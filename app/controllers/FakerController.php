@@ -58,8 +58,55 @@ class FakerController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
-	}
+        echo "DATA ";
+        foreach(range(1, 10) as $index)
+        {
+            $count =Data::where('sensors_id','=',$index)->count();
+            if($count == 0)
+            {
+                $Data = new Data();
+                $Data->sensors_id = $index;
+                $Data->value = rand(20,30);
+                $Data->save();
+                echo round($Data->value,2)."-";
+            }
+            else
+            {
+                $prom = Data::where('sensors_id','=',$index)->avg('value');
+                $aleatorio = $prom + rand(-5,5);
+                $newData = new Data();
+                $newData->sensors_id = $index;
+                $newData->value = $aleatorio;
+                $newData->save();
+                echo round($newData->value,2)."-";
+            }
+        }
+        echo "BATERY ";
+        foreach(range(1, 10) as $index)
+        {
+            $count =Batery::where('sensors_id','=',$index)->count();
+            if($count == 0)
+            {
+                $Batery = new Batery();
+                $Batery->sensors_id = $index;
+                $Batery->value = rand(3.3,5);
+                $Batery->save();
+                echo round($Batery->value,2)."-";
+            }
+            else
+            {
+                $prom = Batery::where('sensors_id','=',$index)->avg('value');
+                $aleatorio = $prom + rand(-1,1);
+                $newBatery = new Batery();
+                $newBatery->sensors_id = $index;
+                $newBatery->value = $aleatorio;
+                $newBatery->save();
+                echo round($newBatery->value,4)."-";
+            }
+        }
+
+
+    }
 
 
 	/**
@@ -79,10 +126,10 @@ class FakerController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show()
 	{
-		//
-	}
+        return View::make('pages.faker.data');
+    }
 
 
 	/**

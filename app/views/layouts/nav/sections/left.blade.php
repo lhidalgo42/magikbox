@@ -13,7 +13,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
 
             @foreach(Control::where('users_id','=',Auth::user()->id)->get() as $control)
@@ -23,7 +23,7 @@
                         @foreach(Product::where('controls_id','=',$control->id)->get() as $product)
                             <?php $sensor = Sensor::where('products_id', '=', $product->id)->where('highlight', 1)->get()->first(); ?>
                             <li>
-                                <a href="#">{{$sensor->tag}} {{$sensor->name}}</a>
+                                <a href="/sensor/{{$sensor->id}}">{{$sensor->tag}} {{$sensor->name}}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -32,31 +32,22 @@
             @endforeach
 
             <li>
-                <a href="/dashboard/calendar"><i class="fa fa-table fa-fw"></i> Calendario</a>
+                <a href="/calendar"><i class="fa fa-table fa-fw"></i> Calendario</a>
             </li>
             <li>
-                <a href="/dashboard/functions"><i class="fa fa-edit fa-fw"></i> Funciones</a>
+                <a href="/functions"><i class="fa fa-edit fa-fw"></i> Funciones</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="panels-wells.html">Panels and Wells</a>
+                        <a href="/sensors">Sensores</a>
                     </li>
                     <li>
-                        <a href="buttons.html">Buttons</a>
+                        <a href="/notifications">Notifications</a>
                     </li>
                     <li>
-                        <a href="notifications.html">Notifications</a>
-                    </li>
-                    <li>
-                        <a href="typography.html">Typography</a>
-                    </li>
-                    <li>
-                        <a href="icons.html"> Icons</a>
-                    </li>
-                    <li>
-                        <a href="grid.html">Grid</a>
+                        <a href="/support">Soporte</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
