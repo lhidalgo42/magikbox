@@ -573,6 +573,7 @@
 @section('css')
     {{ HTML::style('/packages/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}
     <style>
+        @if($sensors != null)
         @foreach($sensors as $sensor)
         @if($batery = Batery::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
         <?php
@@ -594,6 +595,7 @@
             border-color: {{$color}};
         }
         @endforeach
+        @endif
     </style>
 
 @stop
