@@ -32,28 +32,31 @@
             @endforeach
 
             <li>
-                <a href="/calendar"><i class="fa fa-table fa-fw"></i> Calendario</a>
+                <a href="#/calendar"><i class="fa fa-table fa-fw"></i> Calendario</a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="/functions"><i class="fa fa-edit fa-fw"></i> Funciones</a>
-            </li>
+            </li> -->
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/sensors">Sensores</a>
+                        <a href="#/sensors">Sensores</a>
                     </li>
                     <li>
-                        <a href="/notifications">Notifications</a>
+                        <a href="#/notifications">Notifications</a>
                     </li>
                     <li>
-                        <a href="/support">Soporte</a>
+                        <a href="#/advanced/config">Notifications</a>
+                    </li>
+                    <li>
+                        <a href="#/support">Soporte</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="/help"><i class="fa fa-question-circle"></i> Ayuda </a>
+                <a href="#/help"><i class="fa fa-question-circle"></i> Ayuda </a>
             </li>
             <li>
                 <a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout </a>

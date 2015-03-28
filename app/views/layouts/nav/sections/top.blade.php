@@ -10,7 +10,7 @@
 <!-- /.navbar-header -->
 
 <ul class="nav navbar-top-links navbar-right">
-    <li class="dropdown">
+    <?php /* <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-tasks fa-fw"></i> Actividades <i class="fa fa-caret-down"></i>
         </a>
@@ -87,7 +87,7 @@
             </li>
         </ul>
         <!-- /.dropdown-tasks -->
-    </li>
+    </li> */ ?>
     <!-- /.dropdown -->
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
