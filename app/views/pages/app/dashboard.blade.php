@@ -21,11 +21,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     @if($data = DataOptimized::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
-                                    	@if($sensor->id == 5)
-						<div class="huge">20.7</div>
-					@else
-						<div class="huge">{{round($data->value,1)}}</div>
-					@endif
+						            <div class="huge">{{round($data->value,1)}}</div>
                                     @else
                                     <div class="huge">--</div>
                                     @endif
