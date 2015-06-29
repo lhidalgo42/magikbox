@@ -36,6 +36,8 @@ class DataController extends \BaseController {
             $optimized = new DataOptimized();
             $optimized->sensors_id = $sensor->id;
             $optimized->value = $data;
+            $optimized->save();
+            return ((((1200*$VAL)+512)/1024)-500)/10;
         }
 	}
 
