@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="page-wrapper" background-color: #BEBEBE;border-color: #BEBEBE;>
+    <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Resumen Temperaturas</h1>
@@ -9,104 +9,7 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
-        <div class="row"  id="cards">
-            @if($sensors != null)
-            @foreach($sensors as $sensor)
-                <div class="col-lg-3 col-sx-6">
-                    <div class="panel panel-{{str_replace(" ","",$sensor->name)}}">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="ion-thermometer fa-4x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    @if($data = DataOptimized::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
-						            <div class="huge">{{round($data->value,1)}}</div>
-                                    @else
-                                    <div class="huge">--</div>
-                                    @endif
-                                    <div>{{$sensor->name}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/sensor/{{$sensor->id}}">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver mas Detalles</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-o-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            @endforeach
-                    @endif
-        <!--    <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-check fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div> -->
-        <!--<div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>New Orders!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div> -->
-        <!-- <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">0</div>
-                                <div>Ticket de Soporte</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="/support">
-                        <div class="panel-footer">
-                            <span class="pull-left">Ver Detalles</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div> -->
-        </div>
+        <div class="row"  id="cards"> </div>
         <!-- /.row -->
       <?php /*  <div class="row">
             <div class="col-lg-8">
@@ -558,10 +461,52 @@
     {{ HTML::script('/packages/moment/min/moment.min.js') }}
     {{ HTML::script('/packages/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}
     <script>
-        $(function() {
-
+        $(document).ready(function(){
             $('#side-menu').metisMenu();
+           function cards() {
+               var cards = $("#cards");
+                var style = '';
+                cards.html('');
+                $.ajax({
+                    url: "/api/get/data",
+                    type: "post",
+                    success: function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].value <= 0)
+                                style = 'panel-green';
+                            if (data[i].value > 0 && data[i].value <= 4)
+                                style = 'panel-yellow';
+                            if (data[i].value > 4)
+                                style = 'panel-red';
 
+                            cards.append('<div class="col-md-3 col-sm-6">' +
+                            '<div class="panel ' + style + '">' +
+                            '<div class="panel-heading">' +
+                            '<div class="row">' +
+                            '<div class="col-xs-3">' +
+                            '<i class="ion-thermometer fa-4x"></i>' +
+                            '</div>' +
+                            '<div class="col-xs-9 text-right">' +
+                            '<div class="huge">' + data[i].value + '</div>' +
+                            '<div>' + data[i].name + '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '<a href="/sensor/' + data[i].id + '">' +
+                            '<div class="panel-footer">' +
+                            '<span class="pull-left">Ver mas Detalles</span>' +
+                            '<span class="pull-right"><i class="fa fa-arrow-circle-o-right"></i></span>' +
+                            '<div class="clearfix"></div>' +
+                            '</div>' +
+                            '</a>' +
+                            '</div>' +
+                            '</div>')
+                        }
+                    }
+                });
+            }
+            cards()
+            var update = setInterval(cards,10000);
         });
     </script>
     <!-- Morris Charts JavaScript -->
@@ -572,31 +517,5 @@
 
 @section('css')
     {{ HTML::style('/packages/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}
-    <style>
-        @if($sensors != null)
-        @foreach($sensors as $sensor)
-        @if($batery = Batery::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
-        <?php
-        $x = $batery->value;
-        $r = dechex(round((-125/6)*$x + 701/3,0));
-        $g = dechex(round((101/6)*$x + 1043/15,0));
-        $b = dechex(round((13/6)*$x + 1159/15,0));
-        $color = "#".$r.$g.$b;
-        ?>
-        @else
-        <?php $color = "#5cb85c"; ?>
-        @endif
-
-        .panel-{{str_replace(" ","",$sensor->name)}} .panel-heading{
-            background-color: {{$color}};
-            border-color: {{$color}};
-        }
-        .panel-{{str_replace(" ","",$sensor->name)}}{
-            border-color: {{$color}};
-        }
-        @endforeach
-        @endif
-    </style>
-
 @stop
 

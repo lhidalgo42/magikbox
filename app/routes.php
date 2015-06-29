@@ -25,6 +25,7 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('/support', 'SupportController@index');
     Route::get('/help', 'HelpControllers@index');
     Route::get('/functions', 'FunctionsController@index');
+    Route::any('api/get/data','DataController@index');
 });
 
 /*
