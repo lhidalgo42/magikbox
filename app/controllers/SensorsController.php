@@ -44,7 +44,7 @@ class SensorsController extends \BaseController {
 	public function show($id)
 	{
 		$sensor = Sensor::where('sensors.id',$id)->get()->first();
-        $data = Data::where('sensors_id',$id)->get();
+        $data = DataOptimized::where('sensors_id',$id)->get();
         return View::make('pages.app.sensors',compact('sensor','data'));
     }
 

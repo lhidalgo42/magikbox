@@ -9,7 +9,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 |*/
-\Debugbar::disable();
 /*
 |--------------------------------------------------------------------------
 | Redireccionador Principal

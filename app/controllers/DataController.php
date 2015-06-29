@@ -25,13 +25,17 @@ class DataController extends \BaseController {
         $VAL = substr($data,32,3);
         $mac = Mac::where('value','=',$MAC)->get();
         if(count($mac)>0){
-            $product = Product::where('macs_id','=',$mac[0]->id)->get();
-            $sensor = Sensor::where('products_id','=',$product[0]->id)->get();
+            $product = Product::where('macs_id','=',$mac->id)->get()->first();
+            $sensor = Sensor::where('products_id','=',$product->id)->get()->first();
             $VAL = hexdec($VAL);
             $temp = new Data();
-            $temp->sensors_id = $sensor[0]->id;
+            $temp->sensors_id = $sensor->id;
             $temp->value = ((((1200*$VAL)+512)/1024)-500)/10;
             $temp->save();
+            $data = Data::where('sensors_id','=',$sensor[0]->id)->take(10)->orderBy('created_at', 'desc')->avg('value');
+            $optimized = new DataOptimized();
+            $optimized->sensors_id = $sensor->id;
+            $optimized->value = $data;
         }
 	}
 

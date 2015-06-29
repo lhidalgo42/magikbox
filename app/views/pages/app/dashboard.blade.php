@@ -20,7 +20,7 @@
                                     <i class="ion-thermometer fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    @if($data = Data::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
+                                    @if($data = DataOptimized::where('sensors_id',$sensor->id)->orderBy('created_at', 'desc')->get()->first())
                                     	@if($sensor->id == 5)
 						<div class="huge">20.7</div>
 					@else
