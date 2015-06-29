@@ -487,7 +487,7 @@
                             '<i class="ion-thermometer fa-4x"></i>' +
                             '</div>' +
                             '<div class="col-xs-9 text-right">' +
-                            '<div class="huge">' + data[i].value + '</div>' +
+                            '<div class="huge">' + Math.round(data[i].value * 10) / 10 + '</div>' +
                             '<div>' + data[i].name + '</div>' +
                             '</div>' +
                             '</div>' +
