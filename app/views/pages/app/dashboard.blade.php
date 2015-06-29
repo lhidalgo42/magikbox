@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="page-wrapper">
+    <div id="page-wrapper" background-color: #BEBEBE;border-color: #BEBEBE;>
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Inicio</h1>
+                <h1 class="page-header">Resumen Temperaturas</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
