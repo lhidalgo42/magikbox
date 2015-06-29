@@ -27,7 +27,7 @@
 						<div class="huge">{{round($data->value,1)}}</div>
 					@endif
                                     @else
-                                    <div class="huge">{{round(15,1)}}</div>
+                                    <div class="huge">--</div>
                                     @endif
                                     <div>{{$sensor->name}}</div>
                                 </div>
