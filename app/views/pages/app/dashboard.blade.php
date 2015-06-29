@@ -466,11 +466,11 @@
            function cards() {
                var cards = $("#cards");
                 var style = '';
-                cards.html('');
                 $.ajax({
                     url: "/api/get/data",
                     type: "post",
                     success: function (data) {
+                        cards.html('');
                         for (var i = 0; i < data.length; i++) {
                             if (data[i].value <= 0)
                                 style = 'panel-green';
