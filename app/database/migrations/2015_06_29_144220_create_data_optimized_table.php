@@ -16,7 +16,7 @@ class CreateDataOptimizedTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('sensors_id');
-            $table->string('vale');
+            $table->string('value');
 			$table->timestamps();
 		});
 	}
