@@ -34,7 +34,7 @@
                 data: [
                     @foreach($data as $dato){
                     period: '{{$dato->created_at}}',
-                    {{str_replace(" ","",$sensor->name)}}: {{round($dato->value,2)}}},
+                    {{str_replace(" ","",$sensor->name)}}: {{round($dato->value,1)}}},
                     @endforeach
             ],
                 xkey: 'period',
