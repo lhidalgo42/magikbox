@@ -29,7 +29,7 @@
     <script src="/packages/morrisjs/morris.min.js"></script>
     <script>
         $(function(){
-            Morris.Area({
+            Morris.Line({
                 element: 'morris-area-chart',
                 data: [
                     @foreach($data as $dato){
@@ -40,7 +40,7 @@
                 xkey: 'period',
                 ykeys: ['{{str_replace(" ","",$sensor->name)}}'],
                 labels: ['{{$sensor->name}}'],
-                pointSize: 2,
+                pointSize: 0,
                 hideHover: 'auto',
                 resize: true
             });

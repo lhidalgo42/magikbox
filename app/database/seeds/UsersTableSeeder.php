@@ -5,9 +5,9 @@ class UsersTableSeeder extends Seeder {
 	public function run()
 	{
         User::create([
-                'username' => 'admin',
-                'email' => 'admin@admin.com',
-                'password' => '123',
+                'username' => 'elabra',
+                'email' => 'elabra@magikbox.cl',
+                'password' => '123456',
                 'roles_id' => '1'
 		]);
 

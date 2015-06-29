@@ -7,11 +7,11 @@ class ProfilesTableSeeder extends Seeder {
 		Profile::create([
             'users_id' => 1,
             'rut' => '11111111-1',
-            'name' => 'Admin',
-            'lastname1' => 'Admin',
-            'lastname2' => 'Admin',
-            'born' => '2015-03-21',
-            'sex' => 'male'
+            'name' => 'Elabra',
+            'lastname1' => 'Elabra',
+            'lastname2' => '',
+            'born' => '2015-06-28',
+            'sex' => 'female'
 		]);
 
 	}

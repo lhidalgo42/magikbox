@@ -9,7 +9,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 |*/
-
+\Debugbar::disable();
 /*
 |--------------------------------------------------------------------------
 | Redireccionador Principal
@@ -65,8 +65,6 @@ Route::get('/api/request/{data}/','RequestController@index');
 |
 */
 
-Route::group(array('before' => 'auth'), function() {
-    Route::get('/faker/seeds', 'FakerController@index');
-    Route::get('/faker/data', 'FakerController@show');
-    Route::post('/faker/data', 'FakerController@create');
-});
+    Route::any('/upload/frame/{data}/', 'DataController@create');
+
+//7E01492013A2040B1E1A38AF6110140124E6B

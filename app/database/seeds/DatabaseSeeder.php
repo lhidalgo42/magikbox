@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder {
         $this->call('ProfilesTableSeeder');
         $this->call('MacTypesTableSeeder');
         $this->call('SensorTypeTableSeeder');
+        $this->call('MacsTableSeeder');
+        $this->call('ControlsTableSeeder');
+        $this->call('ProductsTableSeeder');
+        $this->call('SensorsTableSeeder');
     }
 
 }
