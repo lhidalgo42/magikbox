@@ -23,7 +23,7 @@ class DataController extends \BaseController {
 	{
         $MAC = "0".substr($data,7,6)."0".substr($data,13,8);
         $VAL = substr($data,32,3);
-        $mac = Mac::where('value','=',$MAC)->get();
+        $mac = Mac::where('value','=',$MAC)->get()->first();
         if(count($mac)>0){
             $product = Product::where('macs_id','=',$mac->id)->get()->first();
             $sensor = Sensor::where('products_id','=',$product->id)->get()->first();
