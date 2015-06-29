@@ -30,14 +30,14 @@ class DataController extends \BaseController {
             $VAL = hexdec($VAL);
             $temp = new Data();
             $temp->sensors_id = $sensor->id;
-            $temp->value = ((((1200*$VAL)+512)/1024)-500)/10;
+            $temp->value = ((((1097*$VAL)+512)/1024)-500)/10;
             $temp->save();
             $data = Data::where('sensors_id','=',$sensor->id)->take(10)->orderBy('created_at', 'desc')->avg('value');
             $optimized = new DataOptimized();
             $optimized->sensors_id = $sensor->id;
             $optimized->value = $data;
             $optimized->save();
-            return ((((1200*$VAL)+512)/1024)-500)/10;
+            return ((((1097*$VAL)+512)/1024)-500)/10;
         }
 	}
 
