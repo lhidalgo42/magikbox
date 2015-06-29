@@ -16,7 +16,7 @@ class DataController extends \BaseController
         foreach ($datos as $data) {
             $val = DataOptimized::where('sensors_id', '=', $data->id)->orderBy('created_at', 'desc')->get()->first();
             if (count($val) > 0)
-                $data['value'] = $val->value;
+                $data['value'] = round($val->value,1);
             else
                 $data['value'] = 0;
             $values[] = $data;
