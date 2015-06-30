@@ -464,8 +464,10 @@
         $(document).ready(function(){
             $('#side-menu').metisMenu();
            function cards() {
+               var now = Date.now();
                var cards = $("#cards");
-                var style = '';
+               var style = '';
+               var icon = '';
                 $.ajax({
                     url: "/api/get/data",
                     type: "post",
@@ -478,16 +480,23 @@
                                 style = 'panel-yellow';
                             if (data[i].value > 4)
                                 style = 'panel-red';
+                            if((now -data[i].date)>300000){
+                                style = 'panel-black';
+                                icon = 'fa fa-plug fa-4x';
+                            }
+                            else{
+                                icon = "ion-thermometer fa-4x";
+                            }
 
                             cards.append('<div class="col-md-3 col-sm-6">' +
                             '<div class="panel ' + style + '">' +
                             '<div class="panel-heading">' +
                             '<div class="row">' +
                             '<div class="col-xs-3">' +
-                            '<i class="ion-thermometer fa-4x"></i>' +
+                            '<i class="'+icon+'"></i>' +
                             '</div>' +
                             '<div class="col-xs-9 text-right">' +
-                            '<div class="huge">' + Math.round(data[i].value * 10) / 10 + '</div>' +
+                            '<div class="huge">' + data[i].value  + '</div>' +
                             '<div>' + data[i].name + '</div>' +
                             '</div>' +
                             '</div>' +

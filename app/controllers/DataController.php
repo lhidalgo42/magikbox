@@ -15,10 +15,14 @@ class DataController extends \BaseController
         $datos = Control::join('products', 'products.controls_id', '=', 'controls.id')->join('sensors', 'sensors.products_id', '=', 'products.id')->where('controls.users_id', '=', Auth::user()->id)->select('sensors.id as id', 'sensors.name as name')->get();
         foreach ($datos as $data) {
             $val = DataOptimized::where('sensors_id', '=', $data->id)->orderBy('created_at', 'desc')->get()->first();
-            if (count($val) > 0)
-                $data['value'] = round($val->value,1);
-            else
-                $data['value'] = 0;
+            if (count($val) > 0) {
+                $data['value'] = round($val->value, 1);
+                $data['date'] = strtotime($val->created_at);
+            }
+            else {
+                $data['value'] = '--';
+                $data['date'] = 0;
+            }
             $values[] = $data;
         }
         return $values;
